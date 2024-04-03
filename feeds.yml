@@ -148,3 +148,13 @@ rednafi:
   scraper_url: https://rednafi.com/go/index.xml
   url: https://rednafi.com/go/
   scraper: FeedScraper
+threedots:
+  title: Three Dots Labs
+  scrape_url: https://threedots.tech/index.xml
+  url: https://threedots.tech
+  scraper: FeedScraper
+research!rsc:
+  title: Thoughts and links about programming, by Russ Cox
+  scrape_url: http://research.swtch.com/feed.atom
+  url: https://research.swtch.com
+  scraper: FeedScraper
