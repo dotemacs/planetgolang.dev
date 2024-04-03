@@ -143,6 +143,11 @@ rakyll:
   scrape_url: https://rakyll.org/index.xml
   url: https://rakyll.org/
   scraper: FeedScraper
+rednafi:
+  title: rednafi.com
+  scraper_url: https://rednafi.com/go/index.xml
+  url: https://rednafi.com/go/
+  scraper: FeedScraper
 threedots:
   title: Three Dots Labs
   scrape_url: https://threedots.tech/index.xml
@@ -153,5 +158,3 @@ research!rsc:
   scrape_url: http://research.swtch.com/feed.atom
   url: https://research.swtch.com
   scraper: FeedScraper
-  
-  
