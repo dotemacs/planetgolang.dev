@@ -72,7 +72,7 @@ func Generate(_ *cli.Context) error {
 		Title:       "Planet Golang",
 		Link:        &fd.Link{Href: "https://planetgolang.dev"},
 		Description: "An unopinionated collection of newest Golang articles from all around the web.",
-		Author:      &fd.Author{Name: "Paweł J. Wal", Email: "hello@planetgolang.dev"},
+		Author:      &fd.Author{Name: "Tomas Urbanec", Email: "hi@planetgolang.dev"},
 		Created:     now,
 	}
 
