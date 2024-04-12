@@ -160,6 +160,6 @@ rednafi:
   scraper: FeedScraper
 jvt:
   title: Jamie Tanna | Software Engineer
-  scrape_url: https://www.jvt.me/tags/go/feed.xml
+  scrape_url: https://www.jvt.me/tags/go/feed.articles.xml
   url: https://www.jvt.me/tags/go/
   scraper: FeedScraper
