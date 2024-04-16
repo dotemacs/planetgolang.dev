@@ -158,3 +158,8 @@ rednafi:
   scrape_url: https://rednafi.com/go/index.xml
   url: https://rednafi.com/go
   scraper: FeedScraper
+microsoft:
+  title: Microsoft for Go Developers
+  scrape_url: https://devblogs.microsoft.com/go/feed/
+  url: https://devblogs.microsoft.com/go/
+  scraper: FeedScraper
