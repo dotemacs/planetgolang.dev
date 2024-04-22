@@ -158,3 +158,8 @@ rednafi:
   scrape_url: https://rednafi.com/go/index.xml
   url: https://rednafi.com/go
   scraper: FeedScraper
+carlana:
+  title: The Ethically-Trained Programmer
+  scrape_url: https://blog.carlana.net/tags/golang/index.xml
+  url: https://blog.carlana.net
+  scraper: FeedScraper
