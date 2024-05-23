@@ -158,8 +158,14 @@ rednafi:
   scrape_url: https://rednafi.com/go/index.xml
   url: https://rednafi.com/go
   scraper: FeedScraper
+
 microsoft:
   title: Microsoft for Go Developers
   scrape_url: https://devblogs.microsoft.com/go/feed/
   url: https://devblogs.microsoft.com/go/
+  scraper: FeedScraper
+jvt:
+  title: Jamie Tanna | Software Engineer
+  scrape_url: https://www.jvt.me/tags/go/feed.articles.xml
+  url: https://www.jvt.me/tags/go/
   scraper: FeedScraper
