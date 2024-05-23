@@ -158,6 +158,11 @@ rednafi:
   scrape_url: https://rednafi.com/go/index.xml
   url: https://rednafi.com/go
   scraper: FeedScraper
+benhoyt:
+  title: Ben Hoyt's technical writing
+  scrape_url: https://benhoyt.com/writings/
+  url: https://benhoyt.com/writings/rss.xml
+  scraper: FeedScraper
 carlana:
   title: The Ethically-Trained Programmer
   scrape_url: https://blog.carlana.net/tags/golang/index.xml
