@@ -5,12 +5,14 @@ import (
 	"net/http"
 )
 
+const userAgent = "planetgolang.dev/1.0"
+
 func Scrape(url string) (string, error) {
 	client := http.Client{}
 
 	req, err := http.NewRequest("GET", url, nil)
 
-	req.Header.Set("User-Agent", "planetgolang.dev/1.0")
+	req.Header.Set("User-Agent", userAgent)
 
 	if err != nil {
 		return "", err
