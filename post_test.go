@@ -3,10 +3,13 @@ package main
 import (
 	"testing"
 	"time"
+
+	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 func TestPost(t *testing.T) {
-	InitializeDb("file::memory:?cache=shared")
+	InitializeDb("file::memory:?cache=shared", &gorm.Config{Logger: logger.Default.LogMode(logger.Silent)})
 
 	Db.AutoMigrate(&Post{})
 	publishedAt, _ := time.Parse("2006-Jan-02", "2022-Feb-02")

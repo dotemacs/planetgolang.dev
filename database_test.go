@@ -7,12 +7,13 @@ import (
 	"time"
 
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 const dbFile = "test.db"
 
 func setupTest(t *testing.T) func(t *testing.T) {
-	err := InitializeDb(dbFile)
+	err := InitializeDb(dbFile, &gorm.Config{Logger: logger.Default.LogMode(logger.Silent)})
 
 	if err != nil {
 		t.Error("Error initialising the database")

@@ -10,13 +10,10 @@ var Db *gorm.DB
 
 const PER_PAGE = 10
 
-func InitializeDb(dbName ...string) error {
+func InitializeDb(dbName string, config *gorm.Config) error {
 	var err error
-	if len(dbName) == 0 {
-		Db, err = gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
-	} else {
-		Db, err = gorm.Open(sqlite.Open(dbName[0]), &gorm.Config{})
-	}
+	Db, err = gorm.Open(sqlite.Open(dbName), config)
+
 	Db.AutoMigrate(&Post{})
 
 	return err
