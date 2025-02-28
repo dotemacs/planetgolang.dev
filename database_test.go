@@ -43,7 +43,6 @@ func TestFindPostByUrl(t *testing.T) {
 	teardownSuite := setupTest(t)
 	defer teardownSuite(t)
 
-	Db.AutoMigrate(&Post{})
 	publishedAt, _ := time.Parse("2006-Jan-02", "2022-Feb-02")
 	Db.Create(&Post{
 		Title:       "title",
@@ -65,7 +64,6 @@ func TestInsertPost(t *testing.T) {
 	teardownSuite := setupTest(t)
 	defer teardownSuite(t)
 
-	Db.AutoMigrate(&Post{})
 	_, err := FindPostByUrl("http://foo.bar")
 
 	if !errors.Is(err, gorm.ErrRecordNotFound) {
@@ -94,7 +92,6 @@ func TestReadPosts(t *testing.T) {
 	teardownSuite := setupTest(t)
 	defer teardownSuite(t)
 
-	Db.AutoMigrate(&Post{})
 	publishedAt, _ := time.Parse("2006-Jan-02", "2022-Feb-02")
 	post := Post{
 		Title:       "title",
@@ -118,7 +115,6 @@ func TestCountPosts(t *testing.T) {
 	teardownSuite := setupTest(t)
 	defer teardownSuite(t)
 
-	Db.AutoMigrate(&Post{})
 	publishedAt, _ := time.Parse("2006-Jan-02", "2022-Feb-02")
 	post := Post{
 		Title:       "title",
