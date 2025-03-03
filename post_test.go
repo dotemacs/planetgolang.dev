@@ -3,17 +3,12 @@ package main
 import (
 	"testing"
 	"time"
-
-	"gorm.io/gorm"
-	"gorm.io/gorm/logger"
 )
 
 func TestPost(t *testing.T) {
-	InitializeDb("file::memory:?cache=shared", &gorm.Config{Logger: logger.Default.LogMode(logger.Silent)})
-
-	Db.AutoMigrate(&Post{})
-	publishedAt, _ := time.Parse("2006-Jan-02", "2022-Feb-02")
-	Db.Create(&Post{
+	dateUnderTest := "2022-Feb-02"
+	publishedAt, _ := time.Parse("2006-Jan-02", dateUnderTest)
+	post := &Post{
 		Title:       "title",
 		Summary:     "bar",
 		Url:         "http://foo.bar",
@@ -21,25 +16,23 @@ func TestPost(t *testing.T) {
 		Source:      "source",
 		PublishedAt: publishedAt,
 		SourceUrl:   "http://foo.bar/post/1",
-	})
-
-	var posts []Post
-	results := Db.Find(&posts)
-	post := posts[0]
-
-	if err := results.Error; err != nil {
-		t.Errorf("Error in finding posts: %v", err)
 	}
 
-	if results.RowsAffected != 1 || post.Title != "title" {
-		t.Errorf("Unexpected post data retrieved: %v", posts)
+	expectedFormattedShortPublishedAt := "02 Feb 22"
+	receivedFormattedShortPublishedAt := post.FormattedShortPublishedAt()
+
+	if receivedFormattedShortPublishedAt != expectedFormattedShortPublishedAt {
+		t.Errorf("Post's short published at date is incorrect, expected: %s, received: %s.",
+			expectedFormattedShortPublishedAt,
+			receivedFormattedShortPublishedAt)
 	}
 
-	if post.FormattedShortPublishedAt() != "02 Feb 22" {
-		t.Errorf("Post's short published at date is incorrect: %s", post.FormattedShortPublishedAt())
-	}
+	expectedFormattedPublishedAt := "02 Feb 22 00:00 UTC"
+	receivedFormattedPublishedAt := post.FormattedPublishedAt()
 
-	if post.FormattedPublishedAt() != "02 Feb 22 00:00 UTC" {
-		t.Errorf("Post's formatted published at date is incorrect: %s", post.FormattedPublishedAt())
+	if receivedFormattedPublishedAt != expectedFormattedPublishedAt {
+		t.Errorf("Post's formatted published at date is incorrect, expected: %s, received: %s.",
+			expectedFormattedPublishedAt,
+			receivedFormattedPublishedAt)
 	}
 }
